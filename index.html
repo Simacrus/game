@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>...</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<canvas id="canvas" width="1500" height="1500" ></canvas>
+<script src="dd.js"> </script>
+<div class="conteiner">
+    <h1 id="clock">0</h1><h1>:</h1><h1 id="min">0</h1><h1>:</h1><h1 id="sec">0</h1>
+</div>
+<script>
+    let clock = document.getElementById("clock")
+    let min = document.getElementById("min")
+    let sec = document.getElementById("sec")
+
+    let null_clock = 00; //ЧАСЫ
+    let null_min = 0; // МИНУТЫ
+    let null_sec = 00; //СЕКУНДЫ
+
+    setInterval(() => {
+        clock.innerHTML = null_clock;
+        min.innerHTML = null_min;
+        sec.innerHTML = null_sec;
+        null_sec++
+            if (null_sec >= 60) {
+                null_min++
+                null_sec = 0;
+            }else if (null_min >= 60) {
+                null_clock ++
+                null_min = 0;
+            }else if (null_clock >= 24 ) {
+                null_clock = 0; 
+            }
+        }, 1000);
+</script>
+</body>
+</html>
